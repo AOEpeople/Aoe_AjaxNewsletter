@@ -1,0 +1,3 @@
+# modman configuration file
+code/				app/code/local/Aoe/AjaxNewsletter/
+etc/modules/Aoe_AjaxNewsletter.xml						app/etc/modules/Aoe_AjaxNewsletter.xml

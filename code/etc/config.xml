@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Aoe_AjaxNewsletter>
+			<version>0.1.0</version>
+		</Aoe_AjaxNewsletter>
+	</modules>
+	<frontend>
+		<routers>
+			<AjaxNewsletter>
+				<use>standard</use>
+				<args>
+					<module>Aoe_AjaxNewsletter</module>
+					<frontName>ajaxnewsletter</frontName>
+				</args>
+			</AjaxNewsletter>
+		</routers>
+	</frontend>
+</config>

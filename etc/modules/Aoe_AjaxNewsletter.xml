@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<config>
+	<modules>
+		<Aoe_AjaxNewsletter>
+			<active>true</active>
+			<codePool>local</codePool>
+			<depends></depends>
+		</Aoe_AjaxNewsletter>
+	</modules>
+</config>
