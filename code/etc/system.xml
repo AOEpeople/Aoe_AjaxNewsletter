@@ -1,0 +1,30 @@
+<config>
+    <sections>
+        <newsletter>
+            <groups>
+                <subscription>
+                    <fields>
+                        <success_page translate="label">
+                            <label>CMS page to show after successful unsubscription</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_cms_page</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </success_page>
+                        <error_page translate="label">
+                            <label>CMS page to show after unsuccessful unsubscription</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_cms_page</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </error_page>
+                    </fields>
+                </subscription>
+            </groups>
+        </newsletter>
+    </sections>
+</config>

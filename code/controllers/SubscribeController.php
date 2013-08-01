@@ -46,4 +46,25 @@ class Aoe_AjaxNewsletter_SubscribeController extends Mage_Newsletter_SubscriberC
         $this->getResponse()->setBody($result);
 	}
 
+    /**
+     * Unsubscribe newsletter
+     */
+    public function unsubscribeAction()
+    {
+        $id    = (int) $this->getRequest()->getParam('id');
+        $code  = (string) $this->getRequest()->getParam('code');
+        $pagePath = '';
+        if ($id && $code) {
+            try {
+                Mage::getModel('newsletter/subscriber')->load($id)
+                    ->setCheckCode($code)
+                    ->unsubscribe();
+                $pagePath = Mage::getStoreConfig('newsletter/subscription/success_page');
+            }
+            catch (Exception $e) {
+                $pagePath = Mage::getStoreConfig('newsletter/subscription/error_page');
+            }
+        }
+        $this->_redirect($pagePath);
+    }
 }

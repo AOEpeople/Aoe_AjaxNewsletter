@@ -2,7 +2,7 @@
 <config>
 	<modules>
 		<Aoe_AjaxNewsletter>
-			<version>0.1.0</version>
+			<version>0.3.0</version>
 		</Aoe_AjaxNewsletter>
 	</modules>
 	<frontend>
@@ -16,4 +16,35 @@
 			</AjaxNewsletter>
 		</routers>
 	</frontend>
+    <global>
+        <helpers>
+            <AjaxNewsletter>
+                <class>Aoe_AjaxNewsletter_Helper</class>
+            </AjaxNewsletter>
+            <newsletter>
+                <rewrite>
+                    <data>Aoe_AjaxNewsletter_Helper_Newsletter</data>
+                </rewrite>
+            </newsletter>
+        </helpers>
+        <resources>
+            <ajaxnewsletter_setup>
+                <setup>
+                    <module>Aoe_AjaxNewsletter</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </ajaxnewsletter_setup>
+        </resources>
+    </global>
+
+    <default>
+        <newsletter>
+            <subscription>
+                <success_page>newsletter-unsubscription-success</success_page>
+                <error_page>newsletter-unsubscription-error</error_page>
+            </subscription>
+        </newsletter>
+    </default>
 </config>
