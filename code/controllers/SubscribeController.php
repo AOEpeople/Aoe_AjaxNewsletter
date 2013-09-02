@@ -30,20 +30,24 @@ class Aoe_AjaxNewsletter_SubscribeController extends Mage_Newsletter_SubscriberC
 
                 $status = Mage::getModel('newsletter/subscriber')->subscribe($email);
                 if ($status == Mage_Newsletter_Model_Subscriber::STATUS_NOT_ACTIVE) {
-                    $result = $this->__('Confirmation request has been sent.');
+                    $result['status'] = 'SUCCESS';
+                    $result['message'] = $this->__('Confirmation request has been sent.');
                 }
                 else {
-                    $result = $this->__('Thank you for your subscription.');
+                    $result['status'] = 'SUCCESS';
+                    $result['message'] = $this->__('Thank you for your subscription.');
                 }
             }
             catch (Mage_Core_Exception $e) {
-                $result = $this->__('There was a problem with the subscription: %s', $e->getMessage());
+                $result['status'] = 'ERROR';
+                $result['message'] = $this->__('There was a problem with the subscription: %s', $e->getMessage());
             }
             catch (Exception $e) {
-                $result = $this->__('There was a problem with the subscription.');
+                $result['status'] = 'ERROR';
+                $result['message'] = $this->__('There was a problem with the subscription.');
             }
         }
-        $this->getResponse()->setBody($result);
+        $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($result));
 	}
 
     /**
@@ -67,4 +71,6 @@ class Aoe_AjaxNewsletter_SubscribeController extends Mage_Newsletter_SubscriberC
         }
         $this->_redirect($pagePath);
     }
+
+
 }
