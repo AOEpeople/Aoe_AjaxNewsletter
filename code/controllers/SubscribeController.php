@@ -30,20 +30,20 @@ class Aoe_AjaxNewsletter_SubscribeController extends Mage_Newsletter_SubscriberC
 
                 $status = Mage::getModel('newsletter/subscriber')->subscribe($email);
                 if ($status == Mage_Newsletter_Model_Subscriber::STATUS_NOT_ACTIVE) {
-                    $result['status'] = 'SUCCESS';
+                    $result['status'] = 'success';
                     $result['message'] = $this->__('Confirmation request has been sent.');
                 }
                 else {
-                    $result['status'] = 'SUCCESS';
+                    $result['status'] = 'success';
                     $result['message'] = $this->__('Thank you for your subscription.');
                 }
             }
             catch (Mage_Core_Exception $e) {
-                $result['status'] = 'ERROR';
+                $result['status'] = 'error';
                 $result['message'] = $this->__('There was a problem with the subscription: %s', $e->getMessage());
             }
             catch (Exception $e) {
-                $result['status'] = 'ERROR';
+                $result['status'] = 'error';
                 $result['message'] = $this->__('There was a problem with the subscription.');
             }
         }
